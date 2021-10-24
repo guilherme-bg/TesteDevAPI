@@ -16,13 +16,8 @@ namespace TesteDevBlipAPI.Controllers {
 
         [HttpGet]
         [Route("api/getrepositories")]
-        public async Task GetRepositories() {
-
-            //var jsonRepos = _repositoriesService.RepositoriesFilter();
-            //Console.WriteLine(jsonRepos);
-            
-            //return Json
-
+        public string GetRepositories() {
+            return  _repositoriesService.RepositoriesFilter();
         }
     }
 }
