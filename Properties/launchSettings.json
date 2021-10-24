@@ -14,7 +14,6 @@
       "launchBrowser": true,
       "launchUrl": "api/getrepositories",
       "environmentVariables": {
-        "GitToken": "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",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
