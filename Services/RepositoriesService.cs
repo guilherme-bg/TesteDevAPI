@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Octokit;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,6 @@ namespace TesteDevBlipAPI.Services {
 
         public async Task<List<Repositories>> GetAllRepositoriesAsync() {
             try {
-
                 List<Repositories> repoCollection = null;
 
                 using (var client = new HttpClient()) {
@@ -50,9 +50,13 @@ namespace TesteDevBlipAPI.Services {
 
                 string jsonRepos;
 
+
                 using (var webClient = new WebClient()) {
                     jsonRepos = JsonConvert.SerializeObject(repos);
+
                 }
+
+                jsonRepos = jsonRepos.Replace(@"\", "-");
 
                 return jsonRepos;
 
