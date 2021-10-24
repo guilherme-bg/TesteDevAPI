@@ -56,7 +56,7 @@ namespace TesteDevBlipAPI.Services {
 
                 }
 
-                jsonRepos = jsonRepos.Replace(@"\", "-");
+                jsonRepos = jsonRepos.ToLower().Replace(@"\", "-");
 
                 return jsonRepos;
 
