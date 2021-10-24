@@ -7,17 +7,25 @@ using TesteDevBlipAPI.Models;
 using TesteDevBlipAPI.Services;
 
 namespace TesteDevBlipAPI.Controllers {
+
+
     public class RepositoriesController : ControllerBase {
+
         private readonly RepositoriesService _repositoriesService;
+
         public RepositoriesController(RepositoriesService repositoriesService) {
             _repositoriesService = repositoriesService;
         }
 
-
+        [Produces("application/json")]
         [HttpGet]
         [Route("api/getrepositories")]
         public string GetRepositories() {
-            return  _repositoriesService.RepositoriesFilter();
+            try {
+                return _repositoriesService.RepositoriesFilteredByLanguage(Constants.language, Constants.repositoriesQuantity);
+            } catch (Exception e) {
+                throw new Exception(e.Message);
+            }
         }
     }
 }
